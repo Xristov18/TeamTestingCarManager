@@ -75,6 +75,7 @@ namespace CarManager.Tests
             public void FuelConsumptionShouldThrowArgExWhenIsZero()
             {
             string make = "aaa";
+            string model = null;
             string model = "A3";
             double fuelConsumption = 0;
             double fuelCapacity = 40;
@@ -85,14 +86,22 @@ namespace CarManager.Tests
             [Test]
             public void FuelCapacityShouldThrowArgExWhenIsZero()
             {
-                //TO DO
-            }
+            string make = "aaa";
+            string model = "A3";
+            double fuelConsumption = 5;
+            double fuelCapacity = 0;
+            Assert.Throws<ArgumentException>(() => new Car(make, model, fuelConsumption, fuelCapacity));
+        }
 
             [Test]
             public void FuelCapacityShouldThrowArgExWhenIsBellowZero()
             {
-                //TO DO
-            }
+            string make = "aaa";
+            string model = "A3";
+            double fuelConsumption = 5;
+            double fuelCapacity = -1;
+            Assert.Throws<ArgumentException>(() => new Car(make, model, fuelConsumption, fuelCapacity));
+        }
 
 
         [TestCase (null, "A3", 20, 100)]
