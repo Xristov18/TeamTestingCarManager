@@ -77,12 +77,17 @@ namespace CarManager.Tests
                 //TO DO
             }
 
-           
-            [TestCase] //всички случаи, при които се хвърля изключение
-            //TO DO
-            public void ValidateAllProperties(string make, string model, double fuelConsumption, double fuelCapacity)
+
+        [TestCase (null, "A3", 20, 100)]
+        [TestCase ("Audi", null, 20, 100)]
+        [TestCase ("Audi", "A3", 0, 100)]
+        [TestCase ("Audi", "A3", 20, -1)]
+        public void ValidateAllProperties(string make, string model, double fuelConsumption, double fuelCapacity)
+        {
+            Assert.Throws<ArgumentException>(() =>
             {
-                //TO DO
+                Car car = new Car(make, model, fuelConsumption, fuelCapacity);
+            });
             }
 
 
