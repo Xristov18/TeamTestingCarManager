@@ -90,7 +90,7 @@ namespace CarManager.Tests
             double fuelConsumption = 5;
             double fuelCapacity = 0;
             Assert.Throws<ArgumentException>(() => new Car(make, model, fuelConsumption, fuelCapacity));
-        }
+            }
 
             [Test]
             public void FuelCapacityShouldThrowArgExWhenIsBellowZero()
@@ -100,8 +100,8 @@ namespace CarManager.Tests
             double fuelConsumption = 5;
             double fuelCapacity = -1;
             Assert.Throws<ArgumentException>(() => new Car(make, model, fuelConsumption, fuelCapacity));
-        }
-
+            }
+         
 
         [TestCase (null, "A3", 20, 100)]
         [TestCase ("Audi", null, 20, 100)]
@@ -119,8 +119,14 @@ namespace CarManager.Tests
             [Test]
             public void ShouldRefuelNormally()
             {
+               string make = "aaa";
+               string model = "bbb";
+               double fuelConsumption = 5;
+               double fuelCapacity = 40;
+               double fuelToRefuel = 30;
+               Car car = new Car(make, model, fuelConsumption, fuelCapacity);
+               car.Refuel(fuelToRefuel);
 
-                //TO DO
             }
 
             [Test]
